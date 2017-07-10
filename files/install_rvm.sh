@@ -15,5 +15,5 @@ try_command  "su - $APP_USER -c gpg --keyserver hkp://keys.gnupg.net --recv-keys
 try_command  "su - $APP_USER -c 'curl -sSL https://get.rvm.io | bash -s stable'"
 try_command  "su - $APP_USER -c rvm install $RUBY_VERSION"
 try_command  "su - $APP_USER -c rvm use $RUBY_VERSION --default"
-try_command  "su - $APP_USER -c rvm gemset create $APPGEMSET"
-try_command  "su - $APP_USER -c rvm gemset use  $APPGEMSET && gem install bundler"
+try_command  "su - $APP_USER -c rvm gemset create $APP_GEMSET"
+try_command  "su - $APP_USER -c rvm gemset use  $APP_GEMSET && gem install bundler"
