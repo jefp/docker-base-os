@@ -16,7 +16,7 @@ function try_command {
   exit 0
 }
 
-try_command  "pwd"
+try_command  "cat /etc/passwd"
 try_command  "whoami"
 try_command  "ls -l"
 

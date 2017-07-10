@@ -8,9 +8,9 @@ ARG APPGEMSET
 
 RUN groupadd -f $APP_GROUP
 
-RUN  if ! getent passwd $APP_USER > /dev/null 2>&1; then useradd -g $APP_GROUP $APP_USER -s /bin/bash ; fi
+RUN  if ! getent passwd $APP_USER > /dev/null 2>&1; then useradd -g $APP_GROUP  -s /bin/bash -b /home/ -m -d /home/$APPUSER $APP_USER; fi
 
-RUN apt-get update && apt-get upgrade -y && apt-get install -y libpq-dev ssmtp ca-certificates sudo dirmngr nodejs libcurl3 curl git iputils-ping nginx-extras vim net-tools telnet wget
+#RUN apt-get update && apt-get upgrade -y && apt-get install -y libpq-dev ssmtp ca-certificates sudo dirmngr nodejs libcurl3 curl git iputils-ping nginx-extras vim net-tools telnet wget
 
 RUN echo "APP_USER ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/01-$APP_USER
 
