@@ -16,9 +16,16 @@ function try_command {
   exit 0
 }
 
+try_command  "pwd"
+try_command  "whoami"
+try_command  "ls -l"
+
+try_command  "find /home -ls"
+try_command  "id -a $APP_USER"
+
 #try_command  "gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3"
-try_command  "curl -sSL https://get.rvm.io | bash -s stable"
-try_command  "rvm install $RUBY_VERSION"
-try_command  "rvm use $RUBY_VERSION --default"
-try_command  "rvm gemset create $APP_GEMSET"
-try_command  "rvm gemset use  $APP_GEMSET && gem install bundler"
+#try_command  "curl -sSL https://get.rvm.io | bash -s stable"
+#try_command  "rvm install $RUBY_VERSION"
+#try_command  "rvm use $RUBY_VERSION --default"
+#try_command  "rvm gemset create $APP_GEMSET"
+#try_command  "rvm gemset use  $APP_GEMSET && gem install bundler"
