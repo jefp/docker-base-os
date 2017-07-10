@@ -4,7 +4,7 @@ function try_command {
   n=0
   until [ $n -ge 5 ]
   do
-     eval "su - $APP_USER -c $1" && return 0
+     eval "su - $APP_USER -c '$1'" && return 0
      n=$[$n+1]
      sleep 15
   done
