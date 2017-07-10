@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 
 export APP_USER=$1
 export RUBY_VERSION=$2
