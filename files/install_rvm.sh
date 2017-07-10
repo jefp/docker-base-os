@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 
 export APP_USER=$1
 export RUBY_VERSION=$2
@@ -11,21 +11,15 @@ function try_command {
      echo "executing su - $APP_USER -c '$1'"
      eval "su - $APP_USER -c '$1'" && return 0
      n=$[$n+1]
-     sleep 15
+     sleep 5
   done
   exit 0
 }
 
-try_command  "cat /etc/passwd"
-try_command  "whoami"
-try_command  "ls -l"
 
-try_command  "find /home -ls"
-try_command  "id -a $APP_USER"
-
-#try_command  "gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3"
-#try_command  "curl -sSL https://get.rvm.io | bash -s stable"
-#try_command  "rvm install $RUBY_VERSION"
-#try_command  "rvm use $RUBY_VERSION --default"
-#try_command  "rvm gemset create $APP_GEMSET"
-#try_command  "rvm gemset use  $APP_GEMSET && gem install bundler"
+try_command  "gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3"
+try_command  "curl -sSL https://get.rvm.io | bash -s stable"
+try_command  "rvm install $RUBY_VERSION"
+try_command  "rvm use $RUBY_VERSION --default"
+try_command  "rvm gemset create $APP_GEMSET"
+try_command  "rvm gemset use  $APP_GEMSET && gem install bundler"

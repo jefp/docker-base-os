@@ -4,15 +4,15 @@ ARG APP_PATH
 ARG APP_GROUP
 ARG APP_USER
 ARG RUBY_VERSION
-ARG APPGEMSET
+ARG APP_GEMSET
 
 RUN groupadd -f $APP_GROUP
 
 RUN  if ! getent passwd $APP_USER > /dev/null 2>&1; then useradd -g $APP_GROUP  -s /bin/bash -b /home/ -m -d /home/$APP_USER $APP_USER; fi
 
-#RUN apt-get update && apt-get upgrade -y && apt-get install -y libpq-dev ssmtp ca-certificates sudo dirmngr nodejs libcurl3 curl git iputils-ping nginx-extras vim net-tools telnet wget
+RUN apt-get update && apt-get upgrade -y && apt-get install -y libpq-dev ssmtp ca-certificates sudo dirmngr nodejs libcurl3 curl git iputils-ping nginx-extras vim net-tools telnet wget
 
-#RUN echo "APP_USER ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/01-$APP_USER
+RUN echo "APP_USER ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/01-$APP_USER
 
 COPY files/install_rvm.sh /tmp/
 
