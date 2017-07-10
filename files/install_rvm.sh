@@ -1,5 +1,9 @@
 #!/bin/bash
 
+APP_USER=$1
+RUBY_VERSION=$2
+APP_GEMSET=$3
+
 function try_command {
   n=0
   until [ $n -ge 5 ]

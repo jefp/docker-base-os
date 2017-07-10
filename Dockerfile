@@ -16,7 +16,7 @@ RUN echo "APP_USER ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/01-$APP_USER
 
 COPY files/install_rvm.sh /tmp/
 
-RUN /tmp/install_rvm.sh && rm /tmp/install_rvm.sh
+RUN /tmp/install_rvm.sh $APP_USER $RUBY_VERSION $APP_GEMSET && rm /tmp/install_rvm.sh
 
 #Remove any apt-get data
 RUN  rm -rf /var/lib/apt/lists/*
