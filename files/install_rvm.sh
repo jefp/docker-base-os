@@ -1,13 +1,14 @@
 #!/bin/bash
 
-APP_USER=$1
-RUBY_VERSION=$2
-APP_GEMSET=$3
+export APP_USER=$1
+export RUBY_VERSION=$2
+export APP_GEMSET=$3
 
 function try_command {
   n=0
   until [ $n -ge 5 ]
   do
+     echo "executing su - $APP_USER -c '$1'"
      eval "su - $APP_USER -c '$1'" && return 0
      n=$[$n+1]
      sleep 15
