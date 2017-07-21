@@ -24,4 +24,6 @@ RUN /tmp/install_rvm.sh $APP_USER $RUBY_VERSION $APP_GEMSET && rm /tmp/install_r
 RUN  rm -rf /var/lib/apt/lists/*
 
 
+
+
 ENTRYPOINT ["/bin/bash"]
